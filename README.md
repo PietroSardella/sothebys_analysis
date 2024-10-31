@@ -22,4 +22,4 @@ Original source of dataset: https://www.kaggle.com/datasets/flkuhm/art-price-dat
 
 This classifier is a WIP and still has a long way to go in terms of outputting any reliable patterns which can be confidently reflected within the data
 
-Upon reflection, this may not have been the most suitable dataset to work with for the ourpose of generating a Naive Bayes Classifier, but was an interesting learning experience and the code can always be applied to generate classifiers from alternative datasets in the future
+
