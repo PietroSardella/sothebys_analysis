@@ -1,101 +1,69 @@
-The Tate Collection
+The Tate Collection | Sotheby's
 ===================
 
-## This repository is no longer actively maintained
-
-**The dataset in this repository was last updated in October 2014. Tate has no plans to resume updating this repository, but we are keeping it available for the time being in case this snapshot of the Tate collection is a useful tool for researchers and developers.**
-
-
-Here we present the metadata for around 70,000 artworks that [Tate](http://www.tate.org.uk/) owns or jointly owns with the [National Galleries of Scotland](http://www.nationalgalleries.org) as part of [ARTIST ROOMS](http://www.tate.org.uk/artist-rooms). Metadata for around 3,500 associated artists is also included.
-
-The metadata here is released under the Creative Commons Public Domain [CC0](http://creativecommons.org/publicdomain/zero/1.0/) licence. Please see the enclosed LICENCE file for more detail.
-
-Images are not included and are not part of the dataset. Use of Tate images is covered on the
-[Copyright and permissions](http://www.tate.org.uk/about/who-we-are/policies-and-procedures/website-terms-use/copyright-and-permissions) page. You may also [license images](http://tate-images.com) for commercial use.
-
-Please review the full [usage guidelines](#usage).
-
-## Examples
-
-Here are some examples of Tate data usage in the wild. Please submit a pull request with your creation added to this list.
-
-* [Tate Explorer](http://shardcore.org/tatedata/) by [Shardcore](http://www.shardcore.org)
-* [Adding RDFa to Tate artwork pages](http://commonsmachinery.se/2013/11/tate-metadata-mashup/) by Peter Liljenberg at [Commons Machinery](http://commonsmachinery.se/)
-* [Data visualisations](http://research.kraeutli.com/index.php/2013/11/the-tate-collection-on-github/) by [Florian Kräutli](http://www.kraeutli.com/)
-* [machine imagined art](http://www.shardcore.org/cgi-bin/getArtwork.pl?id=a_96_19_f_26_b_1a_b_26_47_90_1d3_6_10_2d_) by [Shardcore](http://www.shardcore.org)
-* [autoserota](http://www.shardcore.org/autoserota/) by [Shardcore](http://www.shardcore.org)
-* [The Dimensions of Art](http://www.ifweassume.com/2013/11/the-dimensions-of-art.html) by [Jim Davenport](http://www.ifweassume.com)
-* [Art as Data as Art](http://blog.ironholds.org/art-as-data-as-art/) and [Part II](http://blog.ironholds.org/art-as-data-as-art-part-ii/) by [Oliver Keyes](https://twitter.com/quominus)
-* [Tate Acquisition Data](http://zenlan.com/tate/rickshaw.html) by [Zenlan](http://twitter.com/zenlan)
-* [Artist Rooms](http://www.lemony.space/artist-rooms/) by Jue Yang
-* [As Stated](http://noemata.net/as/stated/) by [noemata/Bjørn Magnhildøen](http://noemata.net)
-* [Cultural Heritage Website with Neo4j](http://larkin.io/index.php/category/tate/) by Larkin Cunningham
-* [As Mutated](http://noemata.net/as/mutated/) by [noemata/Bjørn Magnhildøen](http://noemata.net)
-* [Tatelets](http://marcinignac.com/projects/tatelets/) by [Marcin Ignac/Variable](http://variable.io/), Bettina Nissen and Kirill Kulikov
-* [Tate Collection Geolocalized](https://williamdclt.github.io/tate-museum-artworks-geolocalized/) by Corentin Cournac, Mathieu Dauré, William Duclot and Pierre Présent
-* [TateBot](https://twitter.com/TateBot) by [John Emerson](http://backspace.com/)
-* [Aspect Ratio of Tate Artworks through Time](https://josephlewis.github.io/aspect.html) by [Joseph Lewis](https://josephlewis.github.io/)
-
-
-We are also inviting you to create [GitHub Issues](https://github.com/tategallery/collection/issues) if you notice any bugs or have any ideas for improving the data. Thanks for your help!
 
 ## Repository Contents
 
-We offer two data formats:
+##Sothebys & Tate Museum (in progress)
 
-1. A richer dataset is provided in the JSON format, which is organised by the directory structure of the Git repository. JSON supports more hierarchical or nested information such as subjects.
+# Análise de Dados de Leilões da Sotheby's
 
-2. We also provide CSVs of flattened data, which is less comprehensive but perhaps easier to grok. The CSVs provide a good introduction to overall contents of the Tate metadata and create opportunities for artistic pivot tables.
+Este projeto realiza uma análise detalhada dos dados de leilões de obras de arte da Sotheby's, utilizando dados como ano de criação, movimento artístico, condição da obra e preço. O objetivo é entender como esses fatores influenciam o valor das obras e identificar tendências de mercado.
 
-### JSON
+## Estrutura do Projeto
 
-#### Artists
+Este repositório contém o código e a análise de um conjunto de dados de leilões de arte da Sotheby's, com o foco em entender os preços das obras e explorar características relacionadas a artistas, movimentos artísticos, e períodos de criação.
 
-Each artist has his or her own JSON file. They are found in the `artists` folder, then filed away by first letter of the artist’s surname.
+## Bibliotecas Usadas
 
-#### Artworks
+- **Pandas**: Manipulação e análise de dados.
+- **Matplotlib e Seaborn**: Visualização de dados.
+- **Numpy**: Operações numéricas e manipulação de arrays.
 
-Artworks are found in the `artworks` folder. They are filed away by _accession number_. This is the unique identifier given to artworks when they come into the Tate collection. In many cases, the format has significance. For example, the `ar` accession number prefix indicates that the artwork is part of ARTIST ROOMS collection. The `n` prefix indicates works that once were part of the [National Gallery](http://www.nationalgallery.org.uk/) collection.
+## Jupyter Notebook
 
-### CSV
+### Descrição do Processo de Análise
 
-There is one CSV file for artists (`artist_data.csv`) and one (very large) for artworks (`artwork_data.csv`), which we may one day break up into more manageable chunks. The CSV headings should be helpful. Let us know if not. Entrepreneurial hackers could use the CSVs as an index to the JSON collections if they wanted richer data. **NB CSV files are encoded as UTF-8 text, on which older versions of Excel may choke. We have inserted a UTF-8 BOM to help Excel detect the encoding, which may or may not be a terrible mistake.**
+1. **Importação e Carregamento dos Dados**  
+   O primeiro passo envolve a importação das bibliotecas necessárias e o carregamento do dataset, que contém informações como o preço das obras, artistas, e período de criação.
 
+2. **Pré-processamento dos Dados**  
+   O código realiza a limpeza e o tratamento de dados ausentes ou incorretos:
+   - **Coluna 'price'**: Converte o preço para o tipo numérico.
+   - **Coluna 'yearCreation'**: Trata valores não numéricos e converte para anos aproximados, além de lidar com valores nulos.
+   - **Preenchimento de valores ausentes**: Substitui valores nulos por uma categoria padrão como 'Desconhecido' para as colunas de condição da obra e ano de criação.
 
-## <a name="usage"></a>Usage guidelines for open data
-  
+3. **Análise Exploratória dos Dados**  
+   Após o pré-processamento, são realizadas diversas análises exploratórias:
+   - **Distribuição de preços**: Analisamos os preços das obras com gráficos de boxplot e histogramas.
+   - **Preço médio por movimento artístico e período**: Calculamos e visualizamos o preço médio das obras com base no movimento artístico e no período de criação.
+   - **Análise de vendas por ano**: Observamos o número de obras vendidas por ano e as tendências de mercado ao longo do tempo.
+   - **Análise de artistas mais vendidos**: Identificamos os artistas que mais venderam obras e os que tiveram as obras mais caras.
 
-These usage guidelines are based on goodwill. They are not a legal contract but Tate requests that you follow these guidelines if you use Metadata from our Collection dataset.
+4. **Visualização de Dados**  
+   A visualização é feita com o uso de gráficos interativos e informativos:
+   - **Boxplots** para análise de preços por período artístico.
+   - **Gráficos de barras** para mostrar o número de obras vendidas por artista e o preço médio por movimento artístico.
+   - **Gráficos de dispersão (scatter plots)** para analisar a relação entre o ano de criação e o preço das obras.
 
-The Metadata published by Tate is available free of restrictions under the [Creative Commons Zero Public Domain Dedication](http://creativecommons.org/publicdomain/zero/1.0/).
+5. **Resultados**  
+   Através das visualizações, conseguimos identificar tendências como:
+   - O preço médio das obras por período artístico.
+   - Artistas com obras mais caras desde 1990.
+   - O aumento nas vendas de obras de artistas contemporâneos.
 
-This means that you can use it for any purpose without having to give attribution. However, Tate requests that you actively acknowledge and give attribution to Tate wherever possible. Attribution supports future efforts to release other data.  It also reduces the amount of ‘orphaned data’, helping retain links to authoritative sources.
+### Exemplos de Visualizações
 
-### Give attribution to Tate
+1. **Boxplot**: Preço por Período Artístico
+2. **Gráfico de Barras**: Preço Médio por Movimento Artístico
+3. **Scatterplot**: Ano de Criação vs. Preço
 
-Make sure that others are aware of the rights status of Tate and are aware of these guidelines by keeping intact links to the Creative Commons Zero Public Domain Dedication.
+## Contribuições
 
-If for technical or other reasons you cannot include all the links to all sources of the Metadata and rights information directly with the Metadata, you should consider including them separately, for example in a separate document that is distributed with the Metadata or dataset.
+Contribuições são bem-vindas! Se você tem ideias para melhorar este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-If for technical or other reasons you cannot include all the links to all sources of the Metadata and rights information, you may consider linking only to the Metadata source on Tate’s website, where all available sources and rights information can be found, including in machine readable formats.
+## Licença
 
-### Metadata is dynamic
-
-When working with Metadata obtained from Tate, please be aware that this Metadata is not static. It sometimes changes daily. Tate continuously updates its Metadata in order to correct mistakes and include new and additional information. Museum collections are under constant study and research, and new information is frequently added to objects in the collection.
-
-### Mention your modifications of the Metadata and contribute your modified Metadata back
-Whenever you transform, translate or otherwise modify the Metadata, make it clear that the resulting Metadata has been modified by you. If you enrich or otherwise modify Metadata, consider publishing the derived Metadata without reuse restrictions, preferably via the Creative Commons Zero Public Domain Dedication.
-
-### Be responsible
-
-Ensure that you do not use the Metadata in a way that suggests any official status or that Tate endorses you or your use of the Metadata, unless you have prior permission to do so.
-
-### Ensure that you do not mislead others or misrepresent the Metadata or its sources
-Ensure that your use of the Metadata does not breach any national legislation based thereon, notably concerning (but not limited to) data protection, defamation or copyright.
-Please note that you use the Metadata at your own risk.
-Tate offers the Metadata as-is and makes no representations or warranties of any kind concerning any Metadata published by Tate.
-
-
-The writers of these guidelines are deeply indebted to the [Smithsonian Cooper-Hewitt, National Design Museum](http://www.cooperhewitt.org/); and [Europeana](http://www.europeana.eu/).
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
 
 
